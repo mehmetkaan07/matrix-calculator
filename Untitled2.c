@@ -33,10 +33,23 @@ void printmatrix(int array[10][10],int row,int column){
 void addmatrix(int array1[10][10],int array2[10][10],int array3[10][10],int row, int col){
 	for(int i =0;i<row;i++){
 		for (int j=0;j<col;j++){
-			(array3[i][j])=(array1[i][j] +array2[i][j]);
+			printf("%d ",(array1[i][j] + array2[i][j]));
 			
 		}
+		printf("\n");
 	}
+	
+	return;
+}
+void scalarmultiply(int array[10][10],int scalar,int row, int column){
+	for (int i =0;i<row;i++){
+		for (int j =0;j<column;j++){
+			array[i][j] = scalar*array[i][j];
+			printf("%d",array[i][j]);
+		}
+		printf("\n");
+	}
+	
 	
 	return;
 }
@@ -69,6 +82,7 @@ int main(){
 	int matrixA[10][10]={0};
 	int matrixB[10][10]={0};
 	int resultMatrix[10][10]={0};
+	int scalarNum = 0;
 	switch(chose){
 		
 		case 1:
@@ -96,7 +110,14 @@ int main(){
 			break;
 			
 		case 3: 
+			printf("Enter the row and column of first matrix\n");
+			scanf("%d%d",&rowA,&colA);
+			readmatrix(matrixA,rowA,colA);
+			printf("Enter the scalar number\n");
+			scanf("%d",scalarNum);
+			scalarmultiply(matrixA,scalarNum,rowA,colA);
 			break;
+			
 			
 		case 4:
 			break;
