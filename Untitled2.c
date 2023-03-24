@@ -31,9 +31,12 @@ void printmatrix(int array[10][10],int row,int column){
 	return;
 }
 void addmatrix(int array1[10][10],int array2[10][10],int array3[10][10],int row, int col){
+	int k;
+	int l;
 	for(int i =0;i<row;i++){
 		for (int j=0;j<col;j++){
-			printf("%d ",(array1[i][j] + array2[i][j]));
+			k=(array1[i][j] +array2[i][j] );
+			printf("%d ",k);
 			
 		}
 		printf("\n");
@@ -42,10 +45,13 @@ void addmatrix(int array1[10][10],int array2[10][10],int array3[10][10],int row,
 	return;
 }
 void scalarmultiply(int array[10][10],int scalar,int row, int column){
+	
 	for (int i =0;i<row;i++){
+		
 		for (int j =0;j<column;j++){
-			array[i][j] = scalar*array[i][j];
-			printf("%d",array[i][j]);
+			
+			printf("%d ",scalar*(array[i][j]));
+			
 		}
 		printf("\n");
 	}
@@ -101,9 +107,9 @@ int main(){
 		
 		
 			readmatrix(matrixA,rowA,colA);
-			readmatrix(matrixA,rowB,colB);
-			addmatrix(matrixA,matrixB,resultMatrix,rowA,rowB);
-			printmatrix(resultMatrix,rowA,colB);
+			readmatrix(matrixB,rowB,colB);
+			addmatrix(matrixA,matrixB,resultMatrix,rowA,colA);
+			/*printmatrix(resultMatrix,rowA,colB);*/
 			
 			break;
 		case 2:
@@ -114,7 +120,7 @@ int main(){
 			scanf("%d%d",&rowA,&colA);
 			readmatrix(matrixA,rowA,colA);
 			printf("Enter the scalar number\n");
-			scanf("%d",scalarNum);
+			scanf("%d",&scalarNum);
 			scalarmultiply(matrixA,scalarNum,rowA,colA);
 			break;
 			
