@@ -60,11 +60,41 @@ void scalarmultiply(int array[10][10],int scalar,int row, int column){
 	return;
 }
 
+void abbsmatrix(int array1[10][10],int array2[10][10],int array3[10][10],int row, int col){
+	int k;
+	int l;
+	for(int i =0;i<row;i++){
+		for (int j=0;j<col;j++){
+			k=(array1[i][j] -array2[i][j] );
+			printf("%d ",k);
+			
+		}
+		printf("\n");
+		
+	}
+	return;
+}
+	
+	
 
 
-
-
-
+void matrixbymatrix(int array1[10][10],int array2[10][10],int rowa, int cola ,int colb){
+	
+	
+	for(int l =0;l<rowa;l++){
+	for (int i =0;i<colb;i++){
+		int sum =0;
+		for(int j=0;j<cola;j++){
+			sum = sum +(array1[l][j]*array2[j][i]);
+			
+		}
+		printf("%d ",sum);
+		
+	}
+	printf("\n");
+}
+return;
+}
 
 
 
@@ -109,10 +139,25 @@ int main(){
 			readmatrix(matrixA,rowA,colA);
 			readmatrix(matrixB,rowB,colB);
 			addmatrix(matrixA,matrixB,resultMatrix,rowA,colA);
-			/*printmatrix(resultMatrix,rowA,colB);*/
+			
 			
 			break;
 		case 2:
+			printf("Enter the row and column of first matrix\n");
+			scanf("%d%d",&rowA,&colA);
+			printf("Enter the row and column of second matrix\n");
+			scanf("%d%d",&rowB,&colB);
+			while((rowA !=rowB) || (colB!=colA)){
+				printf("Rows and columns must be equal!\n");
+				printf("Enter the row and column of first matrix\n");
+				scanf("%d%d",&rowA,colA);
+				printf("Enter the row and column of second matrix\n");
+				scanf("%d%d",&rowB,colB);	}			
+		
+		
+			readmatrix(matrixA,rowA,colA);
+			readmatrix(matrixB,rowB,colB);
+			abbsmatrix(matrixA,matrixB,resultMatrix,rowA,colA);
 			break;
 			
 		case 3: 
@@ -126,6 +171,21 @@ int main(){
 			
 			
 		case 4:
+			printf("Enter the row and column of first matrix\n");
+			scanf("%d%d",&rowA,&colA);
+			printf("Enter the row and column of second matrix\n");
+			scanf("%d%d",&rowB,&colB);
+			while((colA !=rowB) ){
+				printf("inner matrices must be equal!\n");
+				printf("Enter the row and column of first matrix\n");
+				scanf("%d%d",&rowA,colA);
+				printf("Enter the row and column of second matrix\n");
+				scanf("%d%d",&rowB,colB);	}			
+		
+		
+			readmatrix(matrixA,rowA,colA);
+			readmatrix(matrixB,rowB,colB);
+			matrixbymatrix(matrixA,matrixB,rowA,colA ,colB);
 			break;
 			
 			
